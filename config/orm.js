@@ -3,4 +3,4 @@ var connection = require('./config/connection.js');
 
 
 
-module.exports.connection;
+module.exports.connection = connection;
