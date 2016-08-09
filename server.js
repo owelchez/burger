@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var method_override = require('method-override');
-var mysql = require('mysql');
+var connection = require('./config/connection.js')
 
 var app = express(); // DUH!
 
@@ -15,26 +15,18 @@ app.set('view engine', 'handlebars');
 //Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + '/public'));
 
-    /*MySQL connection initialization*/
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'burgers_db'
-});
-
 //root get route
 app.get('/', function(req,res) {
-    connection.query('SELECT * FROM events;', function(err, data) {
+    connection.query('SELECT * FROM burgers', function(err, data) {
       if (err) throw err;
 
       //test it
-      console.log('The solution is: ', data);
+      console.log(data);
 
       //test it
       //res.send(data);
 
-      res.render('index', {events : data});
+      //res.render('index', {events : data});
     });
 });
 

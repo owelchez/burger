@@ -1,5 +1,5 @@
 		/*MySQL connection initialization*/
-/*var mysql = require('mysql');
+var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -7,4 +7,4 @@ var connection = mysql.createConnection({
   database : 'burgers_db'
 });
 
-console.log('This is connection.js');*/
+exports.connection = connection;
