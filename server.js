@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var method_override = require('method_override');
-var mysql = require('mysql');
+var method_override = require('method-override');
 
 var app = express(); // DUH!
 
@@ -14,24 +13,6 @@ app.set('view engine', 'handlebars');
 
 //Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + '/public'));
-
-    /*MySQL connection initialization*/
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'burger_db'
-});
-
-/*connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  };
-
-  console.log('connected as id ' + connection.threadId);
-
-})*/ // This is not needed but I will leave it here for reference only
 
 //root get route
 app.get('/', function(req,res) {
@@ -65,8 +46,6 @@ app.post('/create', function(req, res) {
 
       res.redirect('/');
     });
-
-
 });
 
 

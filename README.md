@@ -25,11 +25,13 @@ Require the following npm packages inside of the server.js file:
 express
 method-override
 body-parser
+
+
 DB Setup:
 
 Inside your burger directory, create a folder named db.
 
-In the db folder, create a file named schema.sql. Write SQL queries this file that do the following:
+In the db folder, create a file named schema.sql. Write SQL queries in this file that do the following:
 
 Create the burgers_db.
 Switch to or use the burgers_db.
@@ -38,6 +40,8 @@ id: an auto incrementing int that serves as the primary key.
 burger_name: a string.
 devoured: a boolean.
 date: a TIMESTAMP.
+
+
 Still in the db folder, create a seeds.sql file. In this file, write insert queries to populate the burgers table with at least three entries.
 
 Run the schema.sql and seeds.sql files into the mysql server from the command line

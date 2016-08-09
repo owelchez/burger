@@ -1,12 +1,9 @@
-CREATE DATABASE burgers;
+USE burgers_db;
 
-USE burgers;
-
-CREATE TABLE burgers_db(
-id int(100) NOT NULL AUTO_INCREMENT,
+CREATE TABLE burgers(
+id INTEGER(11) AUTO_INCREMENT NOT NULL,
 burger_name VARCHAR(50), 
 devoured BOOLEAN,
-date TIMESTAMP,
+date_time TIMESTAMP,
 PRIMARY KEY (id)
 )
-
