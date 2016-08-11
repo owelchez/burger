@@ -1,6 +1,6 @@
 body 
 {
-    background-image: url("/img/bburger.jpg");
+    background-image: url("/img/burger.jpg");
     background-size: cover;
     text-align: center;
 }
@@ -23,7 +23,7 @@ body
 
 #burgerGlyph
 {
-	background-color: orange;
+	background-color: BurlyWood;
 }
 
 #textColor
@@ -36,4 +36,10 @@ p
 {
 	font-weight: bolder;
 	color: black;
+}
+
+#textInput
+{
+	margin-top: 20px;
+	margin-bottom: 15px;
 }

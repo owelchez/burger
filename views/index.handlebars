@@ -6,35 +6,29 @@
 
 <ul>
   {{#each burger}}
-  	
       <div class="burger" id="textColor">
   		<span>{{this.id}}</span> 
       <span>{{this.burger_name}}</span> 
       </div>
 
-      {{!-- Form should send a delete command to the server --}}
-      <form method="POST" action="/delete/{{ this.id }}/delete?_method=DELETE">
+      <form action="/delete?_method=DELETE" method="POST">
         <input type="hidden" name="id" value="{{this.id}}">
-        <button class="burger" type="submit">
+        <button type="submit">
         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-        Devour it!
+        Trash it!
         </button>
       </form>
-
-  	
   {{/each}}
+</ul>
 
 
-
-{{!-- Form should send a post command to the server --}}
-<form method="POST" action="/create/burger" class="create-form">
-
-  <div class="form-group">
-    <textarea placeholder="Nasty Crap Burgernator" id="quo" rows="5" cols="40"></textarea>
-  </div>
+<div id="textInput">
+<form method="POST" action="/create" class="create-form">
+<input type="text" name="burger_name">
+</div> 
 
   <button id="textColor" id="submit" type="submit">Place Order</button>
-  <p>Enter name of garbage you want to consume and Click the "Place Order" button.</p>
+  <p id="textColor">Enter name of garbage you want to consume and Click the "Place Order" button or press "Enter".</p>
 </form>
 
 

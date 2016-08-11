@@ -10,7 +10,7 @@ var app = express(); // DUH!
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : 'whatever',
   database : 'burgers_db'
 });
 
@@ -32,14 +32,6 @@ connection.connect(function (err) {
   console.log('connected as id ' + connection.threadId);
 });
 
-    
-
-
-
-
-
-
-
 
 /********************************************/
                 /*MySQL Commands*/
@@ -51,25 +43,36 @@ app.get('/', function(req, res){
     if(err){
       throw err;
     } else {
-      console.log(data);
-      res.render('index', {burger:data});
+      res.render('index', {burger: data});
     }
   })
 })
-
+                    /*^^^^^^ This is working! ^^^^^^*/
 
                       /*POST route*/
-app.post('/create/burger', function(req, res){
-  connection.query('INSERT INTO burgers SET ?', req.body, function(err, data){
+app.post('/create', function(req, res){
+  connection.query('INSERT INTO burgers (burger_name) VALUES (?)', [req.body.burger_name], function(err, data){
     if(err){
       throw err;
     } else{
-      res.redirect('/create/burgers' + data.insertId);
+      res.redirect('/');
     }
   });
 });
 
+                    /*^^^^^^ This is working ^^^^^^*/
 
+app.delete('/delete', function(req, res){
+  connection.query('DELETE FROM burgers WHERE id = ?', [req.body.id], function(err, result){
+    if(err){
+      throw err;
+    } else {
+      res.redirect('/');
+    }
+  });
+});
+
+                      /*^^^^^^ This is working ^^^^^^*/
 
 
 
