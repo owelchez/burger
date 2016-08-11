@@ -1,0 +1,42 @@
+<h1 id="textColor">Eat Da Burger!
+<span id="burgerGlyph" class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+</h1>
+
+
+
+<ul>
+  {{#each burger}}
+  	
+      <div class="burger" id="textColor">
+  		<span>{{this.id}}</span> 
+      <span>{{this.burger_name}}</span> 
+      </div>
+
+      {{!-- Form should send a delete command to the server --}}
+      <form method="POST" action="/delete/{{ this.id }}/delete?_method=DELETE">
+        <input type="hidden" name="id" value="{{this.id}}">
+        <button class="burger" type="submit">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        Devour it!
+        </button>
+      </form>
+
+  	
+  {{/each}}
+
+
+
+{{!-- Form should send a post command to the server --}}
+<form method="POST" action="/create/burger" class="create-form">
+
+  <div class="form-group">
+    <textarea placeholder="Nasty Crap Burgernator" id="quo" rows="5" cols="40"></textarea>
+  </div>
+
+  <button id="textColor" id="submit" type="submit">Place Order</button>
+  <p>Enter name of garbage you want to consume and Click the "Place Order" button.</p>
+</form>
+
+
+</ul>
+

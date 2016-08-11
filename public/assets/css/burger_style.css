@@ -1,0 +1,39 @@
+body 
+{
+    background-image: url("/img/bburger.jpg");
+    background-size: cover;
+    text-align: center;
+}
+
+#title
+{
+	text-align: center;
+	font-family: cursive;
+}
+
+.burger
+{
+	margin: 10px;
+}
+
+#submit
+{
+	margin: 15px;
+}
+
+#burgerGlyph
+{
+	background-color: orange;
+}
+
+#textColor
+{
+	color: red;
+	font-weight: bolder;
+}
+
+p
+{
+	font-weight: bolder;
+	color: black;
+}
