@@ -42,4 +42,15 @@ p
 {
 	margin-top: 20px;
 	margin-bottom: 15px;
+	clear: both;
+}
+
+#burgerContainer
+{
+	float: left;
+}
+
+#devouredContainer
+{
+	float: right;
 }

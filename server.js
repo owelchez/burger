@@ -39,19 +39,34 @@ connection.connect(function (err) {
 
                       //root get route
 app.get('/', function(req, res){
-  connection.query('SELECT * FROM burgers', function(err, data){
+  connection.query('SELECT * FROM burgers WHERE devoured = false', function(err, data){
     if(err){
       throw err;
     } else {
+      console.log(data);
       res.render('index', {burger: data});
     }
   })
 })
                     /*^^^^^^ This is working! ^^^^^^*/
 
+                  /*Root route for devoured burgers*/
+/*app.get('/devoured', function(req, res){
+  connection.query('SELECT * FROM burgers WHERE devoured = true', function(err, data){
+    if(err){
+      throw err;
+    } else {
+      res.render('index', {devoured: data});
+    }
+  })
+})*/
+
+            /*^^^^^^ Working on this! ^^^^^^*/
+
+
                       /*POST route*/
 app.post('/create', function(req, res){
-  connection.query('INSERT INTO burgers (burger_name) VALUES (?)', [req.body.burger_name], function(err, data){
+  connection.query('INSERT INTO burgers (burger_name, devoured) VALUES (?, false)', [req.body.burger_name, req.body.devoured], function(err, data){
     if(err){
       throw err;
     } else{
@@ -73,6 +88,7 @@ app.delete('/delete', function(req, res){
 });
 
                       /*^^^^^^ This is working ^^^^^^*/
+
 
 
 

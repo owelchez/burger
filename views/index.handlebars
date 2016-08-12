@@ -3,9 +3,10 @@
 </h1>
 
 
-
+<div id="burgerContainer">
 <ul>
   {{#each burger}}
+  <li>
       <div class="burger" id="textColor">
   		<span>{{this.id}}</span> 
       <span>{{this.burger_name}}</span> 
@@ -18,8 +19,36 @@
         Trash it!
         </button>
       </form>
+   </li>   
   {{/each}}
 </ul>
+</div>
+
+
+<div id="devouredContainer">
+<ul>
+  {{#each devoured}}
+  <li>
+      <div class="burger" id="textColor">
+      <span>{{this.id}}</span> 
+      <span>{{this.burger_name}}</span> 
+      </div>
+
+      <form action="/delete?_method=DELETE" method="POST">
+        <input type="hidden" name="id" value="{{this.id}}">
+        <button type="submit">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        Trash it!
+        </button>
+      </form>
+   </li>   
+  {{/each}}
+</ul>
+</div>
+
+
+
+
 
 
 <div id="textInput">
@@ -32,5 +61,5 @@
 </form>
 
 
-</ul>
+
 
